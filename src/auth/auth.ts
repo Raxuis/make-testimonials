@@ -7,6 +7,9 @@ import { env } from "@/env"
 const prisma = new PrismaClient()
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
+  theme: {
+    logo: "/icon-title.png",
+  },
   adapter: PrismaAdapter(prisma),
   providers: [
     Google({ clientId: env.GOOGLE_CLIENT_ID, clientSecret: env.GOOGLE_CLIENT_SECRET })
