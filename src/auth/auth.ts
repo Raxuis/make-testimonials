@@ -1,12 +1,11 @@
 import NextAuth from "next-auth"
 import Google from "next-auth/providers/google"
 import { PrismaAdapter } from "@auth/prisma-adapter"
-import { PrismaClient } from "@prisma/client"
 import { env } from "@/env"
+import { prisma } from "@/prisma"
 
-const prisma = new PrismaClient()
 
-export const { handlers, auth, signIn, signOut } = NextAuth({
+export const { handlers, auth: baseAuth, signIn, signOut } = NextAuth({
   theme: {
     logo: "/icon-title.png",
   },
