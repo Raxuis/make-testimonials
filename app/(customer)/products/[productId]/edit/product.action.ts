@@ -61,3 +61,14 @@ export const updateProductAction = userAction(
     return updatedProduct;
   }
 );
+export const deleteProductAction = userAction(
+  z.string(),
+  async (productId, context) => {
+    await prisma.product.delete({
+      where: {
+        id: productId,
+        userId: context.user.id,
+      },
+    });
+  }
+);

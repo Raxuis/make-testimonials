@@ -2,6 +2,7 @@
   "WillLuke.nextjs.addTypesOnSave": true,
   "WillLuke.nextjs.hasPrompted": true,
   "conventionalCommits.scopes": [
-    "Reviews"
+    "Reviews",
+    "Product / admin space"
   ]
 }
