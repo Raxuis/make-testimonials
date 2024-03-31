@@ -95,10 +95,10 @@ export default function PricingPage() {
     <div
       className={cn('flex flex-col w-full items-center')}
     >
-      <div className="flex w-full flex-col items-center">
+      <div className="flex w-full flex-col items-center pt-6">
         <div className="mx-auto flex max-w-7xl flex-col items-center px-6 lg:px-8">
           <div className="mx-auto w-full max-w-4xl lg:w-auto lg:text-center">
-            <h1 className="max-w-xs text-4xl font-semibold !leading-tight text-black dark:text-white sm:max-w-none md:text-3xl">
+            <h1 className="max-w-xs text-center text-2xl font-semibold !leading-tight text-black dark:text-white sm:max-w-none">
               Increase your testimonials by 2
             </h1>
             <p className="mx-auto mt-3 max-w-md text-lg text-gray-500 dark:text-gray-400">
