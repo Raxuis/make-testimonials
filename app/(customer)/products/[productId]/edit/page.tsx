@@ -21,7 +21,7 @@ export default async function RoutePage(props: PageParams<{
   return (
     <Layout>
       <LayoutTitle>
-        Create product
+        Edit product
       </LayoutTitle>
       <ProductForm defaultValues={product} productId={product.id} />
     </Layout>

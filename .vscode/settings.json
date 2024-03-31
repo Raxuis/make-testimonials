@@ -3,6 +3,7 @@
   "WillLuke.nextjs.hasPrompted": true,
   "conventionalCommits.scopes": [
     "Reviews",
-    "Product / admin space"
+    "Product / admin space",
+    "products"
   ]
 }
