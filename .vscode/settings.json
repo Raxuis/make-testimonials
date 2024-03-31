@@ -4,6 +4,7 @@
   "conventionalCommits.scopes": [
     "Reviews",
     "Product / admin space",
-    "products"
+    "products",
+    "pricing"
   ]
 }
