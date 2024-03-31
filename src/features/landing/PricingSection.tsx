@@ -1,7 +1,6 @@
 'use client';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
-import styles from './pricing.module.css';
 
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
@@ -94,7 +93,7 @@ export default function PricingPage() {
 
   return (
     <div
-      className={cn('flex flex-col w-full items-center', styles.fancyOverlay)}
+      className={cn('flex flex-col w-full items-center')}
     >
       <div className="flex w-full flex-col items-center">
         <div className="mx-auto flex max-w-7xl flex-col items-center px-6 lg:px-8">
@@ -169,8 +168,7 @@ export default function PricingPage() {
                   tier.featured
                     ? '!bg-gray-900 ring-gray-900 dark:!bg-gray-100 dark:ring-gray-100'
                     : 'bg-white dark:bg-gray-900/80 ring-gray-300/70 dark:ring-gray-700',
-                  'max-w-xs ring-1 rounded-3xl p-8 xl:p-10',
-                  tier.highlighted ? styles.fancyGlassContrast : '',
+                  'max-w-xs ring-1 rounded-3xl p-8 xl:p-10'
                 )}
               >
                 <h3
@@ -242,13 +240,9 @@ export default function PricingPage() {
                     size="lg"
                     disabled={tier.soldOut}
                     className={cn(
-                      'w-full text-black dark:text-white',
-                      !tier.highlighted && !tier.featured
-                        ? 'bg-gray-100 dark:bg-gray-600'
-                        : 'bg-indigo-300 hover:bg-indigo-400 dark:bg-indigo-600 dark:hover:bg-indigo-700',
-                      tier.featured || tier.soldOut ? 'bg-white dark:bg-neutral-900 hover:bg-gray-200 dark:hover:bg-black' : 'hover:opacity-80 transition-opacity',
+                      'w-full text-white opacity-80'
                     )}
-                    variant={tier.highlighted ? 'default' : 'outline'}
+                    variant={'default'}
                   >
                     {tier.soldOut ? 'Sold out' : tier.cta}
                   </Button>
@@ -266,12 +260,8 @@ export default function PricingPage() {
                     <li key={feature} className="flex gap-x-3">
                       <CheckIcon
                         className={cn(
-                          tier.featured ? 'text-white dark:text-black' : '',
-                          tier.highlighted
-                            ? 'text-indigo-500'
-                            : 'text-gray-500',
-
-                          'h-6 w-5 flex-none',
+                          tier.featured ? 'text-white' : '',
+                          'h-6 w-5 flex-none text-primary',
                         )}
                         aria-hidden="true"
                       />
