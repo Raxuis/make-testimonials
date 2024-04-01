@@ -49,6 +49,52 @@ export const POST = async (req: NextRequest) => {
 
       break;
     }
+    case "invoice.paid": {
+      const invoice = event.data.object as Stripe.Invoice;
+      const customerId = invoice.customer as string;
+
+      const user = await prisma.user.findFirst({
+        where: {
+          stripeCustomerId: customerId,
+        },
+      })
+      if (!user) {
+        return NextResponse.json({ error: "User not found" }, { status: 400 });
+      }
+
+      await prisma.user.update({
+        where: {
+          id: user.id,
+        },
+        data: {
+          plan: "PREMIUM",
+        },
+      })
+
+      break;
+    }
+    case "customer.subscription.deleted": {
+      const subscription = event.data.object as Stripe.Subscription;
+      const customerId = subscription.customer as string;
+
+      const user = await prisma.user.findFirst({
+        where: {
+          stripeCustomerId: customerId,
+        },
+      })
+      if (!user) {
+        return NextResponse.json({ error: "User not found" }, { status: 400 });
+      }
+      await prisma.user.update({
+        where: {
+          id: user.id,
+        },
+        data: {
+          plan: "FREE",
+        },
+      })
+      break;
+    }
     default: {
       console.log("Unhandled event", event);
     }

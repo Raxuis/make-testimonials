@@ -7,6 +7,7 @@
     "products",
     "pricing",
     "stripe",
-    "payment results"
+    "payment results",
+    "subscription"
   ]
 }
