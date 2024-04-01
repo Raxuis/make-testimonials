@@ -6,6 +6,7 @@
     "Product / admin space",
     "products",
     "pricing",
-    "stripe"
+    "stripe",
+    "payment results"
   ]
 }
