@@ -1,10 +1,11 @@
-'use client';
-import { useState } from 'react';
 import { cn } from '@/lib/utils';
 
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { currentUser } from '@/auth/current-user';
+import { upgradeToPremium } from './upgrade-premium.action';
 
 export interface PricingTierFrequency {
   id: string;
@@ -19,6 +20,7 @@ export interface PricingTier {
   href: string;
   discountPrice: string | Record<string, string>;
   price: string | Record<string, string>;
+  frequency: string,
   description: string | React.ReactNode;
   features: string[];
   featured?: boolean;
@@ -37,6 +39,7 @@ export const tiers: PricingTier[] = [
     id: '0',
     href: '/api/auth/signin',
     price: { '1': '$0' },
+    frequency: '/monthly',
     discountPrice: { '1': '' },
     description: `To try our product.`,
     features: [
@@ -46,13 +49,14 @@ export const tiers: PricingTier[] = [
     featured: false,
     highlighted: false,
     soldOut: false,
-    cta: `Sign Up`,
+    cta: `Grab It`,
   },
   {
     name: 'Premium',
     id: '1',
     href: '/api/auth/signin',
     price: { '1': '$39' },
+    frequency: '/monthly',
     discountPrice: { '1': '' },
     description: `For business that want to grow with the best review experience.`,
     features: [
@@ -86,8 +90,8 @@ const CheckIcon = ({ className }: { className?: string }) => {
   );
 };
 
-export default function PricingPage() {
-  const [frequency, setFrequency] = useState(frequencies[0]);
+export default async function PricingPage() {
+  const user = await currentUser();
 
   const bannerText = '';
 
@@ -114,46 +118,6 @@ export default function PricingPage() {
               </p>
             </div>
           ) : null}
-
-          {frequencies.length > 1 ? (
-            <div className="mt-16 flex justify-center">
-              <RadioGroup
-                defaultValue={frequency.value}
-                onValueChange={(value: string) => {
-                  setFrequency(frequencies.find((f) => f.value === value)!);
-                }}
-                className="grid gap-x-1 rounded-full bg-white p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200/30 dark:bg-black dark:ring-gray-800"
-                style={{
-                  gridTemplateColumns: `repeat(${frequencies.length}, minmax(0, 1fr))`,
-                }}
-              >
-                <Label className="sr-only">Payment frequency</Label>
-                {frequencies.map((option) => (
-                  <Label
-                    className={cn(
-                      frequency.value === option.value
-                        ? 'bg-indigo-500/90 text-white dark:bg-indigo-900/70 dark:text-white/70'
-                        : 'bg-transparent text-gray-500 hover:bg-indigo-500/10',
-                      'cursor-pointer rounded-full px-2.5 py-2 transition-all',
-                    )}
-                    key={option.value}
-                    htmlFor={option.value}
-                  >
-                    {option.label}
-
-                    <RadioGroupItem
-                      value={option.value}
-                      id={option.value}
-                      className="hidden"
-                    />
-                  </Label>
-                ))}
-              </RadioGroup>
-            </div>
-          ) : (
-            <div className="mt-12" aria-hidden="true"></div>
-          )}
-
           <div
             className={cn(
               'isolate mx-auto mt-4 mb-28 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none',
@@ -194,15 +158,20 @@ export default function PricingPage() {
                   <span
                     className={cn(
                       tier.featured ? 'text-white dark:text-black' : 'text-black dark:text-white',
-                      'text-4xl font-bold tracking-tight',
-                      tier.discountPrice && tier.discountPrice[frequency.value]
-                        ? 'line-through'
-                        : '',
+                      'text-4xl font-bold tracking-tight'
                     )}
                   >
-                    {typeof tier.price === 'string'
-                      ? tier.price
-                      : tier.price[frequency.value]}
+                    {
+                      tier.discountPrice &&
+                        typeof Object.keys(tier.discountPrice)[0] === 'string' &&
+                        tier.discountPrice[Object.keys(tier.discountPrice)[0]]
+                        ? `$${tier.discountPrice[Object.keys(tier.discountPrice)[0]]}`
+                        : tier.price &&
+                        typeof Object.keys(tier.price)[0] === 'string' &&
+                        tier.price[Object.keys(tier.price)[0]]
+                    }
+
+
                   </span>
 
                   <span
@@ -210,9 +179,7 @@ export default function PricingPage() {
                       tier.featured ? 'text-white dark:text-black' : 'text-black dark:text-white',
                     )}
                   >
-                    {typeof tier.discountPrice === 'string'
-                      ? tier.discountPrice
-                      : tier.discountPrice[frequency.value]}
+                    {tier.discountPrice === 'number'}
                   </span>
 
                   {typeof tier.price !== 'string' ? (
@@ -224,29 +191,48 @@ export default function PricingPage() {
                         'text-sm font-semibold leading-6',
                       )}
                     >
-                      {frequency.priceSuffix}
+                      {tier.frequency}
                     </span>
                   ) : null}
                 </p>
-                <a
-                  href={tier.href}
-                  aria-describedby={tier.id}
-                  className={cn(
-                    'flex mt-6 shadow-sm',
-                    tier.soldOut ? 'pointer-events-none' : '',
-                  )}
-                >
-                  <Button
-                    size="lg"
-                    disabled={tier.soldOut}
+                {user ?
+                  <form className='w-full'>
+                    <Button
+                      formAction={async () => {
+                        "use server";
+                        await upgradeToPremium("");
+                      }}
+                      size="lg"
+                      disabled={tier.soldOut}
+                      className={cn(
+                        'w-full text-white opacity-80 mt-6'
+                      )}
+                      variant={'default'}
+                    >
+                      {tier.soldOut ? 'Sold out' : tier.cta}
+                    </Button>
+                  </form> :
+                  <Link
+                    href='/api/auth/sign'
+                    aria-describedby={tier.id}
                     className={cn(
-                      'w-full text-white opacity-80'
+                      'flex mt-6 shadow-sm',
+                      tier.soldOut ? 'pointer-events-none' : '',
                     )}
-                    variant={'default'}
                   >
-                    {tier.soldOut ? 'Sold out' : tier.cta}
-                  </Button>
-                </a>
+                    <Button
+                      size="lg"
+                      disabled={tier.soldOut}
+                      className={cn(
+                        'w-full text-white opacity-80'
+                      )}
+                      variant={'default'}
+                    >
+                      {tier.soldOut ? 'Sold out' : "Sign Up"}
+                    </Button>
+                  </Link>
+                }
+
 
                 <ul
                   className={cn(
