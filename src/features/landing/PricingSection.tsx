@@ -1,7 +1,4 @@
 import { cn } from '@/lib/utils';
-
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { currentUser } from '@/auth/current-user';
@@ -163,15 +160,15 @@ export default async function PricingPage() {
                   >
                     {
                       tier.discountPrice &&
-                        typeof Object.keys(tier.discountPrice)[0] === 'string' &&
-                        tier.discountPrice[Object.keys(tier.discountPrice)[0]]
+                        typeof tier.discountPrice === 'object' &&
+                        Object.keys(tier.discountPrice).length > 0 &&
+                        typeof tier.discountPrice[Object.keys(tier.discountPrice)[0]] === 'string'
                         ? `$${tier.discountPrice[Object.keys(tier.discountPrice)[0]]}`
                         : tier.price &&
-                        typeof Object.keys(tier.price)[0] === 'string' &&
-                        tier.price[Object.keys(tier.price)[0]]
+                        typeof tier.price === 'object' &&
+                        Object.keys(tier.price).length > 0 &&
+                        typeof tier.price[Object.keys(tier.price)[0]] === 'string'
                     }
-
-
                   </span>
 
                   <span
