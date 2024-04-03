@@ -159,15 +159,12 @@ export default async function PricingPage() {
                     )}
                   >
                     {
-                      tier.discountPrice &&
-                        typeof tier.discountPrice === 'object' &&
-                        Object.keys(tier.discountPrice).length > 0 &&
-                        typeof tier.discountPrice[Object.keys(tier.discountPrice)[0]] === 'string'
-                        ? `$${tier.discountPrice[Object.keys(tier.discountPrice)[0]]}`
-                        : tier.price &&
+                      tier.price &&
                         typeof tier.price === 'object' &&
                         Object.keys(tier.price).length > 0 &&
                         typeof tier.price[Object.keys(tier.price)[0]] === 'string'
+                        ? `${tier.price[Object.keys(tier.price)[0]]}`
+                        : ''
                     }
                   </span>
 
