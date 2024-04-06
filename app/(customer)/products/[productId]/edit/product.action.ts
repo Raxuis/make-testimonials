@@ -7,6 +7,7 @@ import { z } from "zod";
 import { User } from "@prisma/client";
 import { resend } from "@/resend";
 import { EMAIL_FROM } from "@/config";
+import FirstProductCreatedEmail from "../../../../../emails/FirstProductCreatedEmail";
 
 const verifySlugUniqueness = async (slug: string, productId?: string) => {
   const slugExists = await prisma.product.count({
@@ -45,6 +46,7 @@ export const createProductAction = userAction(
         userId: context.user.id,
       }
     })
+    await sendEmailIfUserCreateFirstProduct(context.user);
     return product
   })
 
@@ -97,12 +99,30 @@ const sendEmailIfUserCreateFirstProduct = async (user: User) => {
   if (userProductsCount !== 1) {
     return;
   }
+
+  const product = await prisma.product.findFirst({
+    where: {
+      userId: user.id,
+    },
+    select: {
+      slug: true,
+      name: true,
+    }
+  });
+
+  if (!product) {
+    return;
+  }
+
   await resend.emails.send(
     {
       to: user.email ?? "",
       from: EMAIL_FROM,
       subject: "Your first product!",
-      text: "Hello, thank you for creating your first product. Please check your email for the verification link.",
+      react: FirstProductCreatedEmail({
+        product: product.name,
+        slug: product.slug
+      })
     }
   )
 };
