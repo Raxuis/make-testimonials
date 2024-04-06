@@ -13,6 +13,16 @@ export default async function RoutePage(props: PageParams<{}>) {
   const products = await prisma.product.findMany({
     where: {
       userId: user.id
+    },
+    select: {
+      id: true,
+      name: true,
+      slug: true,
+      _count: {
+        select: {
+          reviews: true,
+        }
+      }
     }
   })
   return (
@@ -29,6 +39,7 @@ export default async function RoutePage(props: PageParams<{}>) {
             <TableHeader>
               <TableHead>Name</TableHead>
               <TableHead>Slug</TableHead>
+              <TableHead>Reviews</TableHead>
             </TableHeader>
             <TableBody>
               {products.map((product) => (
@@ -37,6 +48,7 @@ export default async function RoutePage(props: PageParams<{}>) {
                     <TableCell>{product.name}</TableCell>
                   </Link>
                   <TableCell className="font-mono">{product.slug}</TableCell>
+                  <TableCell className="font-mono">{product._count.reviews}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
