@@ -9,6 +9,7 @@
     "stripe",
     "payment results",
     "subscription",
-    "emails"
+    "emails",
+    "header"
   ]
 }
