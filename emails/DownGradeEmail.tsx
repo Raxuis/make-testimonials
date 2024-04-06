@@ -10,10 +10,10 @@ export const DowngradeEmail = () => {
   return (
     <EmailLayout preview="You created your first product!">
       <Text>
-        Hi, welcome to Premium User!
+        Hi,
       </Text>
       <Text>
-        You can now create an infinite number of products.
+        We are so sad to see you go. you are now downgraded to the free plan.
       </Text>
       <Button href={`${baseUrl}/products/new`}>Create a product</Button>
       <Text>
