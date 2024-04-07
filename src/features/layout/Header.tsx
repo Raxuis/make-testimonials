@@ -9,7 +9,7 @@ export const Header = async () => {
     <header className="w-full border-b border-border py-1">
       <Layout className="flex flex-row items-center gap-4">
         <Link href="/" className="flex-1">
-          <Image src="/logo.svg" width={32} height={32} alt="make-testimonials logo" />
+          <Image src="/logo.svg" width={32} height={32} alt="maketestimonials logo" />
         </Link>
         <div className="flex items-center gap-2">
           <ModeToggle />

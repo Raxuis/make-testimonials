@@ -34,7 +34,7 @@ export const FeatureSection = () => {
                 className="flex h-full flex-col items-center justify-center gap-4"
               >
                 <h2 className="text-lg font-bold">
-                  {`How much did you like make-testimonials.vercel.app`}
+                  {`How much did you like maketestimonials.vercel.app`}
                 </h2>
                 <RatingSelector
                   onSelect={(review) => {
@@ -164,11 +164,11 @@ const reviews: Review[] = [
     image: "",
     ip: "",
     name: "John Doe",
-    productId: "make-testimonials.vercel.app",
+    productId: "maketestimonials.vercel.app",
     rating: 5,
     socialLink: "",
     socialType: "LINKEDIN",
-    text: "I love it! The AI Vocal feature is a game-changer for collecting customer feedback.",
+    text: "I love it! It is a real game-changer for collecting customer feedback.",
   },
   {
     createdAt: new Date(),
@@ -178,7 +178,7 @@ const reviews: Review[] = [
     image: "",
     ip: "",
     name: "Tyler Durden",
-    productId: "make-testimonials.vercel.app",
+    productId: "maketestimonials.vercel.app",
     rating: 4,
     socialLink: "",
     socialType: "LINKEDIN",
@@ -192,7 +192,7 @@ const reviews: Review[] = [
     image: "",
     ip: "",
     name: "Michael Chen",
-    productId: "make-testimonials.vercel.app",
+    productId: "maketestimonials.vercel.app",
     rating: 5,
     socialLink: "",
     socialType: "TWITTER",
@@ -206,7 +206,7 @@ const reviews: Review[] = [
     image: "",
     ip: "",
     name: "Sofia Patel",
-    productId: "make-testimonials.vercel.app",
+    productId: "maketestimonials.vercel.app",
     rating: 3,
     socialLink: "",
     socialType: "LINKEDIN",
@@ -220,7 +220,7 @@ const reviews: Review[] = [
     image: "",
     ip: "",
     name: "Alex Johnson",
-    productId: "make-testimonials.vercel.app",
+    productId: "maketestimonials.vercel.app",
     rating: 5,
     socialLink: "",
     socialType: "LINKEDIN",
@@ -234,11 +234,11 @@ const reviews: Review[] = [
     image: "",
     ip: "",
     name: "John Doe",
-    productId: "make-testimonials.vercel.app",
+    productId: "maketestimonials.vercel.app",
     rating: 5,
     socialLink: "",
     socialType: "LINKEDIN",
-    text: "I love it! The AI Vocal feature is a game-changer for collecting customer feedback.",
+    text: "I love it! It is a real game-changer for collecting customer feedback.",
   },
   {
     createdAt: new Date(),
@@ -248,7 +248,7 @@ const reviews: Review[] = [
     image: "",
     ip: "",
     name: "Emily Rivera",
-    productId: "make-testimonials.vercel.app",
+    productId: "maketestimonials.vercel.app",
     rating: 4,
     socialLink: "",
     socialType: "LINKEDIN",
@@ -262,7 +262,7 @@ const reviews: Review[] = [
     image: "",
     ip: "",
     name: "Michael Chen",
-    productId: "make-testimonials.vercel.app",
+    productId: "maketestimonials.vercel.app",
     rating: 5,
     socialLink: "",
     socialType: "TWITTER",
@@ -276,7 +276,7 @@ const reviews: Review[] = [
     image: "",
     ip: "",
     name: "Sofia Patel",
-    productId: "make-testimonials.vercel.app",
+    productId: "maketestimonials.vercel.app",
     rating: 3,
     socialLink: "",
     socialType: "LINKEDIN",
@@ -290,7 +290,7 @@ const reviews: Review[] = [
     image: "",
     ip: "",
     name: "Alex Johnson",
-    productId: "make-testimonials.vercel.app",
+    productId: "maketestimonials.vercel.app",
     rating: 5,
     socialLink: "",
     socialType: "LINKEDIN",

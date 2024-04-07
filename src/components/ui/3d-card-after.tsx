@@ -13,7 +13,7 @@ export function CardAfter() {
           translateZ="50"
           className="text-xl font-bold text-neutral-600 dark:text-white"
         >
-          After make-testimonials.vercel.app
+          After maketestimonials.vercel.app
         </CardItem>
         <CardItem
           as="p"

@@ -13,7 +13,7 @@ const FAQS: { question: string; answer: string }[] = [
       "Yes, our platform enables you to respond to reviews directly, allowing you to engage with your customers and address their feedback promptly.",
   },
   {
-    question: "Can I integrate make-testimonials.vercel.app with my website?",
+    question: "Can I integrate maketestimonials.vercel.app with my website?",
     answer:
       "Yes, you can easily integrate our service with your website. We provide simple widgets and APIs that you can embed to start collecting testimonials directly from your site.",
   },

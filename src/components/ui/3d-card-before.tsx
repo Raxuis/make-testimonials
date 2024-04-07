@@ -13,7 +13,7 @@ export function CardBefore() {
           translateZ="50"
           className="text-xl font-bold text-neutral-600 dark:text-white"
         >
-          Before make-testimonials.vercel.app
+          Before maketestimonials.vercel.app
         </CardItem>
         <CardItem
           as="p"

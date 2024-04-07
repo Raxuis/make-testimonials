@@ -60,7 +60,7 @@ export function LandingHeader() {
             src="/logo.png"
             width={32}
             height={32}
-            alt="make-testimonials.vercel.app logo"
+            alt="maketestimonials.vercel.app logo"
           />
         </motion.div>
         <motion.nav

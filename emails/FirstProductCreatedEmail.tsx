@@ -16,7 +16,7 @@ export const FirstProductCreatedEmail = ({
   return (
     <EmailLayout preview="You created your first product!">
       <Text>
-        Hi, you just created your first product on make-testimonials.vercel.app.
+        Hi, you just created your first product on maketestimonials.vercel.app.
       </Text>
       <Text>
         So satisfying, you can now share the review url :
