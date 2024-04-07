@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "lintFix": "next lint --fix",
-    "email": "email dev"
+    "email": "email dev",
+    "vercel-build": "prisma generate && prisma deploy && next build"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^1.5.0",
