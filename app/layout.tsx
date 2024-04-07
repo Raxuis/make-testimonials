@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Make Testimonials",
-  description: "Give testimonials on products"
+  description: "Get more reviews and money!"
 };
 
 export default function RootLayout({
