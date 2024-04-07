@@ -22,7 +22,7 @@ export const upgradeToPremium = userAction(
         {
           price: env.NODE_ENV === "development"
             ? "price_1P0h0G01P4NEqDx0vY2MhhjV"
-            : "",
+            : "price_1P30tV01P4NEqDx0I9bnTi2R",
           quantity: 1,
         }],
       success_url: `${getServerUrl()}/success`,
