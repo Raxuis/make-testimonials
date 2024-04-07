@@ -71,6 +71,7 @@ export default async function RoutePage(props: PageParams<{}>) {
           </CardHeader>
           <CardContent className="flex flex-col gap-2">
             <Link className={buttonVariants({ size: "lg" })} href="/products/new">Create a product</Link>
+            <Link className={buttonVariants({ size: "lg" })} href="/products">Products list</Link>
           </CardContent>
         </Card>
         <Card className="min-w-52">
@@ -79,18 +80,18 @@ export default async function RoutePage(props: PageParams<{}>) {
             <CardDescription>{user.plan}</CardDescription>
           </CardHeader>
           <CardContent className="flex flex-col gap-2">
-            <p>Max {user.plan === "FREE" ? 100 : "infinite"} reviews.</p>
+            <p>Max : {user.plan === "FREE" ? 100 : "infinite"} reviews.</p>
             <Progress value={
               (productsCount * 100) / 100
             } max={1} />
-            <p>Max {user.plan === "FREE" ? 1 : "infinite"} products.</p>
+            <p>Max : {user.plan === "FREE" ? 1 : "infinite"} products.</p>
             <Progress value={
               (productsCount * 100) / 1
             } max={1} />
             {user.plan === "FREE" && productsCount === 1 || reviewsCount === 100 ? (
               <Alert>
                 <AlertTitle>You reached the limit of your free plan, please upgrade.</AlertTitle>
-                <Link href="/upgrade">Upgrade</Link>
+                <Link className={buttonVariants({ size: "sm" })} href="/upgrade">Upgrade</Link>
               </Alert>
             ) : null}
           </CardContent>
