@@ -4,6 +4,7 @@ import { FeatureSection } from "@/features/landing/FeatureSection";
 import { ProblemsSection } from "@/features/landing/ProblemsSection";
 import { FAQSection } from "@/features/landing/FAQSection";
 import PricingPage from "@/features/landing/PricingSection";
+import { FooterSection } from "@/features/landing/FooterSection";
 
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <ProblemsSection />
       <PricingPage />
       <FAQSection />
+      <FooterSection />
     </div>
   );
 }
