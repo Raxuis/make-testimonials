@@ -1,23 +1,16 @@
-import { LandingHeader } from "@/features/landing/LandingHeader";
-import { HeroParallaxDemo } from "@/features/landing/HeroSection";
-import { FeatureSection } from "@/features/landing/FeatureSection";
-import { ProblemsSection } from "@/features/landing/ProblemsSection";
-import { FAQSection } from "@/features/landing/FAQSection";
-import PricingPage from "@/features/landing/PricingSection";
-import { FooterSection } from "@/features/landing/FooterSection";
+import { currentUser } from "@/auth/current-user";
+import { redirect } from "next/navigation";
+import Home from "./home/page";
 
 
-export default function Home() {
+export default async function Index() {
+  const user = await currentUser();
+
+  if (user) {
+    redirect("/dashboard");
+  }
+
   return (
-    <div className="flex flex-col gap-4">
-      <div className="h-16" />
-      <LandingHeader />
-      <HeroParallaxDemo />
-      <FeatureSection />
-      <ProblemsSection />
-      <PricingPage />
-      <FAQSection />
-      <FooterSection />
-    </div>
+    <Home />
   );
 }
