@@ -94,7 +94,7 @@ export default async function PricingPage() {
 
   return (
     <div
-      className={cn('flex flex-col w-full items-center')}
+      className={cn('flex flex-col w-full items-center')} id="pricing"
     >
       <div className="flex w-full flex-col items-center pt-6">
         <div className="mx-auto flex max-w-7xl flex-col items-center px-6 lg:px-8">
