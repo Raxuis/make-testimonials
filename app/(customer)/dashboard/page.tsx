@@ -62,7 +62,7 @@ export default async function RoutePage(props: PageParams<{}>) {
             <CardTitle>Last review</CardTitle>
           </CardHeader>
           <CardContent>
-            {lastReview ? (<ReviewItem review={lastReview} />) : <p>No review yet.</p>}
+            {lastReview ? (<ReviewItem className="max-w-lg" review={lastReview} />) : <p>No review yet.</p>}
           </CardContent>
         </Card>
         <Card className="min-w-52">
