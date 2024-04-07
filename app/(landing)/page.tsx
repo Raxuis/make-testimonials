@@ -1,7 +1,9 @@
-import { FeatureSection } from "@/features/landing/FeatureSection";
-import { HeroParallaxDemo } from "@/features/landing/HeroSection";
 import { LandingHeader } from "@/features/landing/LandingHeader";
+import { HeroParallaxDemo } from "@/features/landing/HeroSection";
+import { FeatureSection } from "@/features/landing/FeatureSection";
 import { ProblemsSection } from "@/features/landing/ProblemsSection";
+import { FAQSection } from "@/features/landing/FAQSection";
+import PricingPage from "@/features/landing/PricingSection";
 
 
 export default function Home() {
@@ -12,6 +14,8 @@ export default function Home() {
       <HeroParallaxDemo />
       <FeatureSection />
       <ProblemsSection />
+      <PricingPage />
+      <FAQSection />
     </div>
   );
 }
