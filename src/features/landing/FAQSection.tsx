@@ -13,7 +13,7 @@ const FAQS: { question: string; answer: string }[] = [
       "The AI Vocal feature allows customers to leave voice notes as reviews. Our AI then transcribes these notes into text, making it easier to share and analyze feedback.",
   },
   {
-    question: "Can I integrate get-testimonials.com with my website?",
+    question: "Can I integrate make-testimonials.vercel.app with my website?",
     answer:
       "Yes, you can easily integrate our service with your website. We provide simple widgets and APIs that you can embed to start collecting testimonials directly from your site.",
   },
@@ -24,7 +24,7 @@ const FAQS: { question: string; answer: string }[] = [
   },
   {
     question:
-      "How does get-testimonials.com ensure the authenticity of reviews?",
+      "How does make-testimonials.vercel.app ensure the authenticity of reviews?",
     answer:
       "We use several verification methods to ensure reviews are authentic, including social media verification and IP checks. This maintains the credibility of your testimonials.",
   },
