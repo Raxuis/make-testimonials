@@ -106,7 +106,7 @@ export default async function RoutePage(
               <TableBody>
                 {product.reviews.map((review) => (
                   <TableRow key={review.id}>
-                    <Link href={`/reviews/${review.id}`} key={review.id}>
+                    <Link href={`/r/${review.id}`} key={review.id}>
                       <TableCell>{review.name}</TableCell>
                     </Link>
                     <TableCell>{review.text}</TableCell>
