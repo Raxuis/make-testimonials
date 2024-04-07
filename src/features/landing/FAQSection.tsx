@@ -8,9 +8,9 @@ import { Section } from "./Section";
 
 const FAQS: { question: string; answer: string }[] = [
   {
-    question: "How does the AI Vocal feature work?",
+    question: "Can I respond to reviews directly through get-testimonials.com?",
     answer:
-      "The AI Vocal feature allows customers to leave voice notes as reviews. Our AI then transcribes these notes into text, making it easier to share and analyze feedback.",
+      "Yes, our platform enables you to respond to reviews directly, allowing you to engage with your customers and address their feedback promptly.",
   },
   {
     question: "Can I integrate make-testimonials.vercel.app with my website?",
@@ -23,10 +23,9 @@ const FAQS: { question: string; answer: string }[] = [
       "No, there are no limits on the number of reviews you can collect. Our goal is to help you gather as much valuable feedback as possible.",
   },
   {
-    question:
-      "How does make-testimonials.vercel.app ensure the authenticity of reviews?",
+    question: "Are there analytics tools to measure the impact of reviews?",
     answer:
-      "We use several verification methods to ensure reviews are authentic, including social media verification and IP checks. This maintains the credibility of your testimonials.",
+      "Yes, our platform provides analytics tools that allow you to measure the impact of your reviews, including sentiment analysis, review volume trends, and more.",
   },
   {
     question: "Can customers edit their reviews after submitting them?",
