@@ -99,7 +99,7 @@ export const ProcessReviewStep = ({ product }: { product: Product }) => {
             }}
             className="flex h-full flex-col items-center justify-center gap-4"
           >
-            <h2 className="text-lg font-bold">
+            <h2 className="text-center text-lg font-bold">
               {product.noteText ?? `How much did you like ${product.name}?`}
             </h2>
             <RatingSelector

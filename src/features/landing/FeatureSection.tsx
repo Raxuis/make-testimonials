@@ -33,7 +33,7 @@ export const FeatureSection = () => {
                 }}
                 className="flex h-full flex-col items-center justify-center gap-4"
               >
-                <h2 className="text-lg font-bold">
+                <h2 className="text-center text-lg font-bold">
                   {`How much did you like maketestimonials.vercel.app`}
                 </h2>
                 <RatingSelector
