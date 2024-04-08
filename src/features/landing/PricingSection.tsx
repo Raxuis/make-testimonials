@@ -24,6 +24,7 @@ export interface PricingTier {
   highlighted?: boolean;
   cta: string;
   soldOut?: boolean;
+  Claimed?: boolean
 }
 
 export const frequencies: PricingTierFrequency[] = [
@@ -46,7 +47,8 @@ export const tiers: PricingTier[] = [
     featured: false,
     highlighted: false,
     soldOut: false,
-    cta: `Grab It`,
+    Claimed: true,
+    cta: `Free`,
   },
   {
     name: 'Premium',
@@ -197,7 +199,7 @@ export default async function PricingPage() {
                         await upgradeToPremium("");
                       }}
                       size="lg"
-                      disabled={tier.soldOut}
+                      disabled={false}
                       className={cn(
                         'w-full text-white opacity-80 mt-6'
                       )}
@@ -206,13 +208,13 @@ export default async function PricingPage() {
                       {tier.soldOut ? 'Sold out' : tier.cta}
                     </Button> : <Button
                       size="lg"
-                      disabled={tier.soldOut}
+                      disabled={tier.Claimed}
                       className={cn(
                         'w-full text-white opacity-80 mt-6'
                       )}
                       variant={'default'}
                     >
-                      {tier.soldOut ? 'Sold out' : tier.cta}
+                      {tier.Claimed ? 'Already Claimed' : tier.cta}
                     </Button>}
 
                   </form> :
@@ -232,7 +234,7 @@ export default async function PricingPage() {
                       )}
                       variant={'default'}
                     >
-                      {tier.soldOut ? 'Sold out' : "Sign Up"}
+                      {tier.soldOut ? 'Free' : "Sign Up"}
                     </Button>
                   </Link>
                 }
