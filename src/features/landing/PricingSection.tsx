@@ -191,12 +191,10 @@ export default async function PricingPage() {
                 </p>
                 {user ?
                   <form className='w-full'>
-                    <Button
+                    {tier.name === "Starter" ? <Button
                       formAction={async () => {
-                        if (tier.name !== "Starter") {
-                          "use server";
-                          await upgradeToPremium("");
-                        }
+                        "use server";
+                        await upgradeToPremium("");
                       }}
                       size="lg"
                       disabled={tier.soldOut}
@@ -206,7 +204,17 @@ export default async function PricingPage() {
                       variant={'default'}
                     >
                       {tier.soldOut ? 'Sold out' : tier.cta}
-                    </Button>
+                    </Button> : <Button
+                      size="lg"
+                      disabled={tier.soldOut}
+                      className={cn(
+                        'w-full text-white opacity-80 mt-6'
+                      )}
+                      variant={'default'}
+                    >
+                      {tier.soldOut ? 'Sold out' : tier.cta}
+                    </Button>}
+
                   </form> :
                   <Link
                     href="/api/auth/signin"
