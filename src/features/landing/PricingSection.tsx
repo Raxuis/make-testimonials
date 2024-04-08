@@ -207,7 +207,7 @@ export default async function PricingPage() {
                     </Button>
                   </form> :
                   <Link
-                    href='/api/auth/sign'
+                    href='/api/auth/signin'
                     aria-describedby={tier.id}
                     className={cn(
                       'flex mt-6 shadow-sm',
