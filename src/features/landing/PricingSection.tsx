@@ -193,8 +193,10 @@ export default async function PricingPage() {
                   <form className='w-full'>
                     <Button
                       formAction={async () => {
-                        "use server";
-                        await upgradeToPremium("");
+                        if (tier.name !== "Starter") {
+                          "use server";
+                          await upgradeToPremium("");
+                        }
                       }}
                       size="lg"
                       disabled={tier.soldOut}
@@ -207,7 +209,7 @@ export default async function PricingPage() {
                     </Button>
                   </form> :
                   <Link
-                    href='/api/auth/signin'
+                    href="/api/auth/signin"
                     aria-describedby={tier.id}
                     className={cn(
                       'flex mt-6 shadow-sm',
@@ -254,6 +256,6 @@ export default async function PricingPage() {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
