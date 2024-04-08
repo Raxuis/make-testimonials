@@ -191,7 +191,7 @@ export default async function PricingPage() {
                 </p>
                 {user ?
                   <form className='w-full'>
-                    {tier.name === "Starter" ? <Button
+                    {tier.name === "Premium" ? <Button
                       formAction={async () => {
                         "use server";
                         await upgradeToPremium("");
