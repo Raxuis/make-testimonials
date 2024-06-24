@@ -6,7 +6,7 @@ import { ActionError, userAction } from "@/safe-actions";
 import { stripe } from "@/stripe";
 import { z } from "zod";
 
-export const singOutAction = async () => {
+export const signOutAction = async () => {
   await signOut();
 };
 

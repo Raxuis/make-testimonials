@@ -12,7 +12,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { PropsWithChildren } from "react";
 import { toast } from "sonner";
-import { setupCustomerPortal, singOutAction } from "./auth.action";
+import { setupCustomerPortal, signOutAction } from "./auth.action";
 
 export type LoggedInDropdownProps = PropsWithChildren;
 
@@ -61,7 +61,7 @@ export const LoggedInDropdown = (props: LoggedInDropdownProps) => {
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => {
-            singOutAction();
+            signOutAction();
           }}
         >
           <LogOut size={16} className="mr-2" />
